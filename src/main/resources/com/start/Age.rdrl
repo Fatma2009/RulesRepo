@@ -1,0 +1,13 @@
+package com.start;
+
+import java.lang.Number;
+
+rule "Age"
+	dialect "mvel"
+	ruleflow-group "agequalification"
+	when
+		applicantt( age > 18 && age >= 70 )
+		loan : Loan( )
+	then
+		loan.setAgePreQualification( true );
+end
